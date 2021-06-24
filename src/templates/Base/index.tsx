@@ -1,0 +1,76 @@
+import {useEffect,useState,React} from 'react';
+import { Footer } from '../../components/Footer';
+import { GoTop } from '../../components/GoTop';
+import { Header } from '../../components/Header';
+import { Menu } from '../../components/Menu';
+import { SettingsStrapi } from '../../shared-types/settings-strapi';
+import * as Styled from './styles';
+import { useRouter} from 'next/dist/client/router';
+import {loadCategories} from '../../api/load-categories';
+import Link from 'next/link';
+
+export type BaseTemplateProps = {
+  settings: SettingsStrapi;
+  children: React.ReactNode;
+};
+
+export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
+  const router = useRouter();
+  const [stateCategories, setStateCategories] = useState([]);
+  const site = router.pathname;
+
+  useEffect(() => {
+      loadCategories().then(val => {
+        setStateCategories(val);
+      });
+  },[]);
+
+
+
+  return (
+    <Styled.Wrapper>
+      <Menu links={settings.menuLink}
+          blogName={settings.blogName}
+          logo={settings.logo[0].url}
+      />
+     <Styled.HeaderContainer>
+        <Header
+        blogName = {settings.blogName}
+        description={settings.description}
+        logo ={settings.logo[0].url}
+        showText={true}
+        />
+
+        <Styled.MenuSearch>
+          <Styled.SearchContainer>
+              {stateCategories.length> 0 && stateCategories.map((category) => (
+                <div key={`article-meta-cat-${category._id}`}>
+                  <Link href={{pathname: "/category", query: { slug: category.slug}}} as={`/category/${category.slug}`}>
+                    <Styled.LinkMenuCategory> {category.displayName} </Styled.LinkMenuCategory>
+                   </Link>
+                </div>
+              ))}
+              <form action="/search/" method="GET">
+                <Styled.SearchInput type="search" placeholder="Buscar por posts..."
+                  name="q"
+                  defaultValue={router.query.q}
+                />
+              </form>
+           </Styled.SearchContainer>
+        </Styled.MenuSearch>
+     </Styled.HeaderContainer>
+
+     <Styled.ContentContainer>
+
+     {children} </Styled.ContentContainer>
+
+     <Styled.FooterContainer>
+        <Footer html={settings.text}/>
+     </Styled.FooterContainer>
+
+    <GoTop />
+    </Styled.Wrapper>
+
+  );
+
+}
