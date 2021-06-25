@@ -1,9 +1,10 @@
-import {useEffect,useState,React} from 'react';
+import React,{useEffect,useState} from 'react';
 import { Footer } from '../../components/Footer';
 import { GoTop } from '../../components/GoTop';
 import { Header } from '../../components/Header';
 import { Menu } from '../../components/Menu';
 import { SettingsStrapi } from '../../shared-types/settings-strapi';
+import { Category } from '../../shared-types/category';
 import * as Styled from './styles';
 import { useRouter} from 'next/dist/client/router';
 import {loadCategories} from '../../api/load-categories';
@@ -18,13 +19,14 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
   const router = useRouter();
   const [stateCategories, setStateCategories] = useState([]);
   const site = router.pathname;
+  let values
+
 
   useEffect(() => {
-      loadCategories().then(val => {
-        setStateCategories(val);
-      });
-  },[]);
+      values = loadCategories()
 
+  },[]);
+  setStateCategories(values);
 
 
   return (
@@ -36,7 +38,7 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
      <Styled.HeaderContainer>
         <Header
         blogName = {settings.blogName}
-        description={settings.description}
+        description={settings.Description}
         logo ={settings.logo[0].url}
         showText={true}
         />

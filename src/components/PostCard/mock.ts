@@ -1,3 +1,5 @@
+import {PostCardProps} from '.';
+
 export default {
   id:'8483483',
   title: 'Hello Nanaverso',

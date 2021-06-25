@@ -16,7 +16,7 @@ export type MenuPropsLinks ={
 
 export type MenuProps = {
   links: MenuPropsLinks[];
-  blogName: String;
+  blogName: string;
   logo: string;
 };
 

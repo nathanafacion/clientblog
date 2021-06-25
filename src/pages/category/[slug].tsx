@@ -5,7 +5,7 @@ import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../..
 import {PostsTemplate} from '../../templates/PostsTemplate';
 import {AguardeTemplate} from '../../templates/AguardeTemplate';
 
-export default function CategoryPage({ posts, setting, variables}: StrapiPostAndSettings){
+export default function CategoryPage({ posts, settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
 
    if(router.isFallback){
@@ -20,15 +20,15 @@ export default function CategoryPage({ posts, setting, variables}: StrapiPostAnd
      <>
       <Head>
         <title>
-          Category: {categoryName} - {setting.blogName}
+          Category: {categoryName} - {settings.blogName}
         </title>
       </Head>
-      <PostsTemplate posts = {posts} settings={setting} variables={variables} />
+      <PostsTemplate posts = {posts} settings={settings} variables={variables} />
      </>
    );
 }
 
-export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
+export const getStaticPaths: GetStaticPaths = async () => {
     console.log("getStaticPaths");
     return {
       paths: [],
@@ -38,35 +38,31 @@ export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
 };
 
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) =>{
+export const getStaticProps: GetStaticProps = async (ctx) => {
   let data = null;
-  const variables= {categorySlug: ctx.params.slug as string}
-  console.log("getStaticProps");
-  try {
+  const variables = { categorySlug: ctx.params.slug as string };
 
+  try {
     data = await loadPosts(variables);
   } catch (e) {
     data = null;
   }
 
-  console.log(data.posts);
-  console.log(data.posts[0].categories);
-
-  if(!data || !data.posts || !data.posts.length){
+  if (!data || !data.posts || !data.posts.length) {
     return {
-      notFoud: true,
+      notFound: true,
     };
   }
 
-    return {
-      props: {
-        posts:data.posts,
-        setting: data.setting,
-        variables: {
-          ...defaultLoadPostsVariables,
-          ...variables,
-        }
+  return {
+    props: {
+      posts: data.posts,
+      settings: data.setting,
+      variables: {
+        ...defaultLoadPostsVariables,
+        ...variables,
       },
-      revalidate: 24*60*60,
-    };
+    },
+    revalidate: 60,
+  };
 };

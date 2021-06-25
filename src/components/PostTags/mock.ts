@@ -1,3 +1,5 @@
+import {PostTagsProps} from '.';
+
 export default {
   tags: [
     {

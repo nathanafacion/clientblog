@@ -1,5 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { PostTemplate, PostTemplateProps } from '.';
+import * as Styled from './styles'
 
 import mock from './mock';
 
@@ -17,9 +18,6 @@ export const Template: Story<PostTemplateProps> = (args) => {
   return (
     <div>
       <PostTemplate {...args} />
-      <Styled.Button onClick={handleLoadMorePosts} disabled={buttonDisabled}>
-        {noMorePosts ?  'Sem mais posts' : 'Carregar mais'}
-      </Styled.Button>
     </div>
   );
 };

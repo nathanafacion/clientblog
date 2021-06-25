@@ -1,24 +1,23 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { SobreMimTemplate, SobreMimTemplateProps } from '.';
+import { OtherPagesTemplate,  OtherPagesTemplateProps } from '.';
+import { PostTemplate} from '../PostTemplate';
 
 import mock from './mock';
 
 export default {
-  title: 'PostTemplate',
-  component: SobreMimTemplate,
+  title: ' OtherPagesTemplate',
+  component:  OtherPagesTemplate,
   args: mock,
   parameters:{
       layout: 'fullscreen',
   },
-} as Meta<SobreMimTemplateProps>;
+} as Meta <OtherPagesTemplateProps>;
 
 
-export const Template: Story<SobreMimTemplateProps> = (args) => {
+export const Template: Story<OtherPagesTemplateProps> = (args) => {
   return (
     <div>
-      <PostTemplate {...args} />
-      <Styled.Button onClick={handleLoadMorePosts} disabled={buttonDisabled}>
-      </Styled.Button>
+
     </div>
   );
 };

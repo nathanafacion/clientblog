@@ -1,26 +1,27 @@
 import Head from 'next/head';
-import {GetStaticProps} from 'next';
+import {GetServerSideProps} from 'next';
 import {useRouter} from 'next/dist/client/router';
 import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
 import { PostsTemplate } from '../../templates/PostsTemplate';
 
-export default function SearchPage({ posts, setting, variables}: StrapiPostAndSettings){
+export default function SearchPage({ posts, settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
      return (
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {setting.blogName}
+          Pesquisa: {router.query.q} - {settings.blogName}
         </title>
       </Head>
-      <PostsTemplate posts = {posts} settings={setting} variables={variables} />
+      <PostsTemplate posts = {posts} settings={settings} variables={variables} />
      </>
    );
 }
 
-export const getServerSideProps: GetServerSideProps<StrapiPostAndSettings> = async(ctx) =>{
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let data = null;
     const query = ctx.query.q || ''
+
 
     if (!query){
       return{
@@ -38,14 +39,14 @@ export const getServerSideProps: GetServerSideProps<StrapiPostAndSettings> = asy
 
     if (!data || !data.posts){
       return {
-        notFoud: true,
+        notFound: true,
       };
     }
 
     return {
       props:{
         posts:data.posts,
-        setting: data.setting,
+        settings: data.setting,
         variables: {
           ...defaultLoadPostsVariables,
           ...variables,

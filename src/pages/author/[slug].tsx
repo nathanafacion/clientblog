@@ -1,67 +1,68 @@
 import Head from 'next/head';
-import {GetStaticPaths, GetStaticProps} from 'next';
-import {useRouter} from 'next/dist/client/router';
-import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
-import {PostsTemplate} from '../../templates/PostsTemplate';
-import {AguardeTemplate} from '../../templates/AguardeTemplate';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import {
+  defaultLoadPostsVariables,
+  loadPosts,
+  StrapiPostAndSettings,
+} from '../../api/load-posts';
+import { PostsTemplate } from '../../templates/PostsTemplate';
 
-export default function AuthorPage({ posts, setting, variables}: StrapiPostAndSettings){
-   const router = useRouter();
+export default function AuthorPage({
+  posts,
+  settings,
+  variables,
+}: StrapiPostAndSettings) {
+  const router = useRouter();
 
-   if(router.isFallback){
-     return <AguardeTemplate/>
-   }
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
 
-   const post = posts[0];
-
-   return (
-     <>
+  return (
+    <>
       <Head>
         <title>
-          Author: {post.author.displayName} - {setting.blogName}
+          Author: {posts[0].author.displayName} - {settings.blogName}
         </title>
       </Head>
-      <PostsTemplate posts = {posts} settings={setting} variables={variables} />
-     </>
-   );
+      <PostsTemplate posts={posts} settings={settings} variables={variables} />
+    </>
+  );
 }
 
-export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
-
-    return {
-      paths: [],
-      fallback: true,
-    };
-
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
 };
 
-
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) =>{
+export const getStaticProps: GetStaticProps = async (ctx) => {
   let data = null;
-  const variables = {authorSlug: ctx.params.slug as string};
+  const variables = { authorSlug: ctx.params.slug as string };
 
   try {
     data = await loadPosts(variables);
-
   } catch (e) {
     data = null;
   }
 
-  if(!data || !data.posts || !data.posts.length){
+  if (!data || !data.posts || !data.posts.length) {
     return {
-      notFoud: true,
+      notFound: true,
     };
   }
 
-    return {
-      props: {
-        posts:data.posts,
-        setting: data.setting,
-        variables:{
-          ...defaultLoadPostsVariables,
-          ...variables,
-        }
+  return {
+    props: {
+      posts: data.posts,
+      settings: data.setting,
+      variables: {
+        ...defaultLoadPostsVariables,
+        ...variables,
       },
-      revalidate: 24*60*60,
-    };
+    },
+    revalidate: 60,
+  };
 };

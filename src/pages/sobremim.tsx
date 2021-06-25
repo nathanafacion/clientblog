@@ -6,22 +6,22 @@ import { OtherPagesTemplate } from '../templates/OtherPagesTemplate';
 import * as Mock from '../templates/OtherPagesTemplate/mock';
 
 
-export default function Index({ post, setting, variables}: StrapiPostAndSettings){
+export default function Index({ settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
      return (
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {setting.blogName}
+          Pesquisa: {router.query.q} - {settings.blogName}
         </title>
       </Head>
-      <OtherPagesTemplate title={Mock.default.about.title} content={Mock.default.about.content} settings={setting} />
+      <OtherPagesTemplate title={Mock.default.about.title} content={Mock.default.about.content} settings={settings} />
      </>
    );
 }
 
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async() =>{
+export const getStaticProps: GetStaticProps = async() =>{
   let data =null;
 
   try {
@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async() =>{
       };
   }
 
-    console.log(data.posts[0].cover);
 
     return {
       props: {

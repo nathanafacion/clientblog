@@ -1,3 +1,5 @@
+import {PostGridProps} from '.';
+
 export default {
   posts: [
     {

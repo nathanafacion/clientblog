@@ -4,7 +4,7 @@ import {useRouter} from 'next/dist/client/router';
 import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
 import {PostsTemplate} from '../../templates/PostsTemplate';
 
-export default function TagPage({ posts, setting, variables}: StrapiPostAndSettings){
+export default function TagPage({ posts, settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
 
    if(router.isFallback){
@@ -19,15 +19,15 @@ export default function TagPage({ posts, setting, variables}: StrapiPostAndSetti
      <>
       <Head>
         <title>
-          Tag: {tagName} - {setting.blogName}
+          Tag: {tagName} - {settings.blogName}
         </title>
       </Head>
-      <PostsTemplate posts = {posts} settings={setting}  variables={variables}/>
+      <PostsTemplate posts = {posts} settings={settings}  variables={variables}/>
      </>
    );
 }
 
-export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
+export const getStaticPaths: GetStaticPaths = async() =>{
 
     return {
       paths: [],
@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
 };
 
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) =>{
+export const getStaticProps: GetStaticProps = async(ctx) =>{
   let data = null;
   const variables = {tagSlug: ctx.params.slug as string};
 
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) 
 
   if(!data || !data.posts || !data.posts.length){
     return {
-      notFoud: true,
+      notFound: true,
     };
   }
 

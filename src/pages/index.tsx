@@ -3,22 +3,23 @@ import { GetStaticProps} from 'next';
 import {defaultLoadPostsVariables,loadPosts, StrapiPostAndSettings} from  '../api/load-posts'
 import {PostsTemplate} from   '../templates/PostsTemplate';
 
-export default function Index({ posts, setting, variables}: StrapiPostAndSettings){
+export default function Index({ posts, settings, variables}: StrapiPostAndSettings){
+  console.log(settings)
   return(
     <>
       <Head>
         <title>
-          {setting.blogName} - {setting.description}
+          {settings.blogName} - {settings.Description}
         </title>
-        <meta name="description" content={setting.description} />
+        <meta name="description" content={settings.Description} />
       </Head>
-      <PostsTemplate posts={posts} settings={setting} variables={variables}/>
+      <PostsTemplate posts={posts} settings={settings} variables={variables}/>
     </>
   )
 
 }
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async() =>{
+export const getStaticProps: GetStaticProps = async() =>{
   let data =null;
 
   try {
@@ -27,20 +28,17 @@ export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async() =>{
   } catch (e) {
     data = null;
   }
-  console.log('teste')
-  console.log(data);
+
   if(!data || !data.posts || !data.posts.length){
       return {
         notFound: true,
       };
   }
-
-    console.log(data.posts[0].cover);
-
     return {
+
       props: {
         posts:data.posts,
-        setting: data.setting,
+        settings: data.setting,
         variables: {
           ...defaultLoadPostsVariables,
         },

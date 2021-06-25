@@ -27,7 +27,7 @@ export const Header = ({
               <Heading size="huge" as="h2" colorDark={true}>
                 {blogName}
               </Heading>
-              <div align='right'>
+              <div>
                 {valueDescription}
               </div>
             </Styled.Content>

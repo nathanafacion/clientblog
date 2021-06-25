@@ -2,7 +2,7 @@ import Link from 'next/link';
 import * as Styled from './styles';
 import {Heading} from '../Heading';
 import {PostProps} from '../Post';
-import {StrapiImage} from '../../shared-types/strapiimage';
+import { StrapiImage } from '../../shared-types/image';
 
 export type PostCardProps = {
   id: string;

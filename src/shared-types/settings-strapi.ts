@@ -1,10 +1,10 @@
 import {MenuPropsLinks} from '../components/Menu';
-import {StrapiImage} from './strapi-image';
+import {StrapiImage} from './image';
 
 export type SettingsStrapi = {
   id: string;
   blogName: string;
-  blogDescription: string;
+  Description: string;
   logo: StrapiImage;
   menuLink: MenuPropsLinks[];
   text: string;

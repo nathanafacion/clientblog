@@ -2,19 +2,9 @@
 import { ArticleHeader, ArticleHeaderProps } from '../ArticleHeader';
 import { HtmlComponent } from '../HtmlContent';
 import { PostContainer } from '../PostContainer';
-import {StrapiImage} from '../../shared-typed/strapiimage';
-import { Category } from '../Category';
-import { Author } from '../Author';
 import * as Styled from './styles';
 
-export type PostProps =  {
-  id: string;
-  title: string;
-  excerpt: string;
-  cover: StrapiImage;
-  author: Author;
-  categories: Category[];
-  createdAt: string;
+export type PostProps = ArticleHeaderProps & {
   content: string;
 };
 
@@ -28,8 +18,7 @@ export const Post = ({
     createdAt,
     content,
     }: PostProps) => {
-      console.log("cover teste");
-      console.log(cover)
+
 return (
   <>
   <Styled.Wrapper>

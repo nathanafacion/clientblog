@@ -2,6 +2,7 @@ import * as Styled from './styles';
 import { Post } from '../../components/Post';
 import { PostTags } from '../../components/PostTags';
 import {SettingsStrapi } from '../../shared-types/settings-strapi';
+import {PostStrapi } from '../../shared-types/post-strapi';
 import {BaseTemplate } from '../Base';
 import { useRouter } from 'next/router'
 

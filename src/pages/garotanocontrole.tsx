@@ -5,49 +5,44 @@ import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../ap
 import { OtherPagesTemplate } from '../templates/OtherPagesTemplate';
 import * as Mock from '../templates/OtherPagesTemplate/mock';
 
-export default function Index({ post, setting, variables}: StrapiPostAndSettings){
+export default function Index({ settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
      return (
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {setting.blogName}
+          Pesquisa: {router.query.q} - {settings.blogName}
         </title>
       </Head>
-        <OtherPagesTemplate title={Mock.default.garotaNoControle.title} content={Mock.default.garotaNoControle.content} settings={setting} />
+        <OtherPagesTemplate title={Mock.default.garotaNoControle.title} content={Mock.default.garotaNoControle.content} settings={settings} />
      </>
    );
 }
 
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async() =>{
-  let data =null;
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  let data = null;
 
   try {
     data = await loadPosts();
-
   } catch (e) {
     data = null;
   }
-  console.log('teste')
-  console.log(data);
-  if(!data || !data.posts || !data.posts.length){
-      return {
-        notFound: true,
-      };
+
+  if (!data || !data.posts || !data.posts.length) {
+    return {
+      notFound: true,
+    };
   }
 
-    console.log(data.posts[0].cover);
-
-    return {
-      props: {
-        posts:data.posts,
-        setting: data.setting,
-        variables: {
-          ...defaultLoadPostsVariables,
-        },
+  return {
+    props: {
+      settings: data.setting,
+      variables: {
+        ...defaultLoadPostsVariables,
       },
-      revalidate: 24*60*60,
-    };
-
+    },
+    revalidate: 60,
+  };
 };

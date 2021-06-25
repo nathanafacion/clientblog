@@ -10,7 +10,7 @@ import {LoadPostsVariables,loadPosts} from '../../api/load-posts';
 
 export type PostsTemplateProps = {
   settings: SettingsStrapi;
-  posts?:PostStrapi[];
+  posts?: PostStrapi[];
   variables?: LoadPostsVariables;
 };
 
@@ -51,7 +51,7 @@ export const PostsTemplate = ({ settings, posts =[], variables }: PostsTemplateP
     <BaseTemplate settings={settings}>
 
       <PostGrid posts={statePosts}/>
-      
+
     {statePosts && statePosts.length ?(
       <Styled.ButtonContainer>
         <Styled.Button onClick={handleLoadMorePosts} disabled={buttonDisabled}>

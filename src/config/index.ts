@@ -1,5 +1,5 @@
 export default {
-  url: 'https://pequeno-blog-react.vercel.app',
+  url: 'localhost:3000',
   siteName: 'Nanaverso',
   defaultSlug: 'landing-page',
   graphlURL:'https://serverblogdananah.herokuapp.com/graphql',

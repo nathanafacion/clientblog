@@ -4,8 +4,10 @@ import {useRouter} from 'next/dist/client/router';
 import {loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
 import {PostTemplate} from '../../templates/PostTemplate';
 
-export default function PostPage({ posts, setting}: StrapiPostAndSettings){
+export default function PostPage({ posts, settings}: StrapiPostAndSettings){
    const router = useRouter();
+
+   const post = posts[0];
 
    if(router.isFallback){
      return (
@@ -13,7 +15,7 @@ export default function PostPage({ posts, setting}: StrapiPostAndSettings){
        <>
         <Head>
           <title>
-            {post.title} - {setting.blogName}
+            {post.title} - {settings.blogName}
           </title>
         </Head>
         <h1> Aguarde... </h1>
@@ -22,22 +24,21 @@ export default function PostPage({ posts, setting}: StrapiPostAndSettings){
      )
    }
 
-   const post = posts[0];
 
    return (
      <>
       <Head>
         <title>
-          {post.title} - {setting.blogName}
+          {post.title} - {settings.blogName}
         </title>
         <meta name="description" content={post.excerpt} />
       </Head>
-      <PostTemplate post = {post} settings={setting} />
+      <PostTemplate post = {post} settings={settings} />
      </>
    );
 }
 
-export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
+export const getStaticPaths: GetStaticPaths = async () => {
   let data : StrapiPostAndSettings | null = null;
   let paths = [];
 
@@ -63,7 +64,7 @@ export const getStaticPaths: GetStaticProps<StrapiPostAndSettings> = async() =>{
 };
 
 
-export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) =>{
+export const getStaticProps: GetStaticProps = async(ctx) =>{
   let data =null;
 
   try {
@@ -85,7 +86,7 @@ export const getStaticProps: GetStaticProps<StrapiPostAndSettings> = async(ctx) 
     return {
       props: {
         posts:data.posts,
-        setting: data.setting,
+        settings: data.setting,
       },
       revalidate: 24*60*60,
     };

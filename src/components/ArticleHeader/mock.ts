@@ -1,4 +1,4 @@
-import {ArticleHEaderProps} from '.';
+import {ArticleHeaderProps} from '.';
 
 export default {
   id: 'Nana',
@@ -27,4 +27,4 @@ export default {
     }
   ],
   createdAt: '2021-06-04T15:16:09.246+00:00'
-} as ArticleHEaderProps ;
+} as ArticleHeaderProps ;
