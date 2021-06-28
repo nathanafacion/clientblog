@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async() =>{
     return {
       props: {
         posts:data.posts,
-        setting: data.setting,
+        settings: data.setting,
         variables: {
           ...defaultLoadPostsVariables,
         },
