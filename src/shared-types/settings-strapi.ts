@@ -4,7 +4,7 @@ import {StrapiImage} from './image';
 export type SettingsStrapi = {
   id: string;
   blogName: string;
-  Description: string;
+  description: string;
   logo: StrapiImage;
   menuLink: MenuPropsLinks[];
   text: string;

@@ -25,8 +25,8 @@ var head = __webpack_require__(5030);
 var head_default = /*#__PURE__*/__webpack_require__.n(head);
 // EXTERNAL MODULE: ../../../AppData/Roaming/npm/node_modules/next/dist/client/router.js
 var client_router = __webpack_require__(3624);
-// EXTERNAL MODULE: ./src/api/load-posts.ts
-var load_posts = __webpack_require__(7479);
+// EXTERNAL MODULE: ./src/api/load-posts.ts + 3 modules
+var load_posts = __webpack_require__(7374);
 // EXTERNAL MODULE: ./src/templates/PostsTemplate/index.tsx + 5 modules
 var PostsTemplate = __webpack_require__(6760);
 // EXTERNAL MODULE: external "styled-components"
@@ -217,7 +217,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [885,54,760], function() { return __webpack_exec__(6957); });
+var __webpack_exports__ = __webpack_require__.X(0, [885,173,760], function() { return __webpack_exec__(6957); });
 module.exports = __webpack_exports__;
 
 })();

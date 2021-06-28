@@ -22,11 +22,11 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
   let values
 
 
-  useEffect(() => {
-      values = loadCategories()
+  //useEffect(() => {
+  //    values = loadCategories()
 
-  },[]);
-  setStateCategories(values);
+  //},[]);
+  //setStateCategories(values);
 
 
   return (
@@ -38,20 +38,14 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
      <Styled.HeaderContainer>
         <Header
         blogName = {settings.blogName}
-        description={settings.Description}
+        description={settings.description}
         logo ={settings.logo[0].url}
         showText={true}
         />
 
         <Styled.MenuSearch>
           <Styled.SearchContainer>
-              {stateCategories.length> 0 && stateCategories.map((category) => (
-                <div key={`article-meta-cat-${category._id}`}>
-                  <Link href={{pathname: "/category", query: { slug: category.slug}}} as={`/category/${category.slug}`}>
-                    <Styled.LinkMenuCategory> {category.displayName} </Styled.LinkMenuCategory>
-                   </Link>
-                </div>
-              ))}
+              
               <form action="/search/" method="GET">
                 <Styled.SearchInput type="search" placeholder="Buscar por posts..."
                   name="q"

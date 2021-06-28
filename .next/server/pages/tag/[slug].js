@@ -19,7 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5030);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_dist_client_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3624);
-/* harmony import */ var _api_load_posts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7479);
+/* harmony import */ var _api_load_posts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7374);
 /* harmony import */ var _templates_PostsTemplate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6760);
 
 
@@ -184,7 +184,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [885,54,760], function() { return __webpack_exec__(5333); });
+var __webpack_exports__ = __webpack_require__.X(0, [885,173,760], function() { return __webpack_exec__(5333); });
 module.exports = __webpack_exports__;
 
 })();

@@ -9,9 +9,9 @@ export default function Index({ posts, settings, variables}: StrapiPostAndSettin
     <>
       <Head>
         <title>
-          {settings.blogName} - {settings.Description}
+          {settings.blogName} - {settings.description}
         </title>
-        <meta name="description" content={settings.Description} />
+        <meta name="description" content={settings.description} />
       </Head>
       <PostsTemplate posts={posts} settings={settings} variables={variables}/>
     </>

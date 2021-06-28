@@ -25,7 +25,7 @@ export const PostTemplate = ({ settings, post }: PostTemplateProps) => {
         <PostTags tags={post.tags}/>
       </Styled.TagsContainer>
       <Styled.ButtonContainer>
-        <Styled.Button onClick={handleBack}>
+        <Styled.Button onClick={() => handleBack()}>
           {'Voltar'}
         </Styled.Button>
       </Styled.ButtonContainer>

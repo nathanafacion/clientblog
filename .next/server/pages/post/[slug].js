@@ -49,8 +49,8 @@ var head = __webpack_require__(5030);
 var head_default = /*#__PURE__*/__webpack_require__.n(head);
 // EXTERNAL MODULE: ../../../AppData/Roaming/npm/node_modules/next/dist/client/router.js
 var client_router = __webpack_require__(3624);
-// EXTERNAL MODULE: ./src/api/load-posts.ts
-var load_posts = __webpack_require__(7479);
+// EXTERNAL MODULE: ./src/api/load-posts.ts + 3 modules
+var load_posts = __webpack_require__(7374);
 // EXTERNAL MODULE: external "styled-components"
 var external_styled_components_ = __webpack_require__(9914);
 var external_styled_components_default = /*#__PURE__*/__webpack_require__.n(external_styled_components_);
@@ -276,8 +276,8 @@ const PostTags = ({
     })]
   });
 };
-// EXTERNAL MODULE: ./src/templates/Base/index.tsx + 14 modules
-var Base = __webpack_require__(5303);
+// EXTERNAL MODULE: ./src/templates/Base/index.tsx + 13 modules
+var Base = __webpack_require__(3065);
 // EXTERNAL MODULE: ../../../AppData/Roaming/npm/node_modules/next/router.js
 var next_router = __webpack_require__(2232);
 ;// CONCATENATED MODULE: ./src/templates/PostTemplate/index.tsx
@@ -313,7 +313,7 @@ const PostTemplate = ({
       })
     }), /*#__PURE__*/jsx_runtime_.jsx(ButtonContainer, {
       children: /*#__PURE__*/jsx_runtime_.jsx(Button, {
-        onClick: handleBack,
+        onClick: () => handleBack(),
         children: 'Voltar'
       })
     })]
@@ -512,7 +512,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [885,54], function() { return __webpack_exec__(5310); });
+var __webpack_exports__ = __webpack_require__.X(0, [885,173], function() { return __webpack_exec__(5310); });
 module.exports = __webpack_exports__;
 
 })();

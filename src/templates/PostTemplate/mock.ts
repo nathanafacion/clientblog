@@ -6,7 +6,7 @@ export default {
             logo: {
               url:'assets/images/social-share.jpg'
             },
-            Description:'O universo pelos olhos de uma garota sonhadora',
+            description:'O universo pelos olhos de uma garota sonhadora',
             text:'Criado pela Nana',
 
             menuLink:
