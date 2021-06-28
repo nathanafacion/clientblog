@@ -43,8 +43,8 @@ function Index({
   const router = (0,next_dist_client_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("title", {
-        children: ["Pesquisa: ", router.query.q, " - ", settings.blogName]
+      children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
+        children: "Sobre Mim"
       })
     }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_templates_OtherPagesTemplate__WEBPACK_IMPORTED_MODULE_4__/* .OtherPagesTemplate */ .j, {
       title: _templates_OtherPagesTemplate_mock__WEBPACK_IMPORTED_MODULE_5__/* .default.about.title */ .Z.about.title,
@@ -74,7 +74,7 @@ const getStaticProps = async () => {
   return {
     props: {
       posts: data.posts,
-      setting: data.setting,
+      settings: data.setting,
       variables: _objectSpread({}, _api_load_posts__WEBPACK_IMPORTED_MODULE_3__/* .defaultLoadPostsVariables */ .p)
     },
     revalidate: 24 * 60 * 60

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/ZH-OiZtIyV4GUb0nh0-WE/_buildManifest.js",
-    "static/ZH-OiZtIyV4GUb0nh0-WE/_ssgManifest.js"
+    "static/kEDybek6kgoCWkHZGYUp7/_buildManifest.js",
+    "static/kEDybek6kgoCWkHZGYUp7/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -54,7 +54,7 @@
       "static/chunks/main-2d38521fc88f9be89edf.js",
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/759-16f39a77ec6fcdb1c5a8.js",
-      "static/chunks/pages/garotanocontrole-66c96bcca43bd7a75a92.js"
+      "static/chunks/pages/garotanocontrole-b672b4b26b3e7ad760d0.js"
     ],
     "/post/[slug]": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",
@@ -78,7 +78,7 @@
       "static/chunks/main-2d38521fc88f9be89edf.js",
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/759-16f39a77ec6fcdb1c5a8.js",
-      "static/chunks/pages/sobremim-25fcdf87c2369f6559d2.js"
+      "static/chunks/pages/sobremim-ceb67a8c6195391c8164.js"
     ],
     "/tag/[slug]": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",
@@ -95,7 +95,7 @@
       "static/chunks/main-2d38521fc88f9be89edf.js",
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/759-16f39a77ec6fcdb1c5a8.js",
-      "static/chunks/pages/vimlivenci-52e942b2ef71cab988a6.js"
+      "static/chunks/pages/vimlivenci-9ba47a823049296b05cb.js"
     ]
   },
   "ampFirstPages": []
