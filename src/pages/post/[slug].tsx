@@ -8,26 +8,30 @@ import {AguardeTemplate} from '../../templates/AguardeTemplate';
 export default function PostPage({ posts, settings}: StrapiPostAndSettings){
    const router = useRouter();
 
-   const post = posts[0];
+   if (posts.length > 0) {
+       const post = posts[0];
 
-   if(router.isFallback){
-     return <AguardeTemplate/>
+       if(router.isFallback){
+         return <AguardeTemplate/>
 
+       } else {
+
+
+         return (
+           <>
+            <Head>
+              <title>
+                {post.title} - {settings.blogName}
+              </title>
+              <meta name="description" content={post.excerpt} />
+            </Head>
+            <PostTemplate post = {post} settings={settings} />
+           </>
+         );
+     }
    } else {
-
-
-     return (
-       <>
-        <Head>
-          <title>
-            {post.title} - {settings.blogName}
-          </title>
-          <meta name="description" content={post.excerpt} />
-        </Head>
-        <PostTemplate post = {post} settings={settings} />
-       </>
-     );
- }
+     return 'Post Inválido';
+   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
