@@ -19,14 +19,6 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
   const router = useRouter();
   const [stateCategories, setStateCategories] = useState([]);
   const site = router.pathname;
-  let values
-
-
-  useEffect(() => {
-      values = loadCategories()
-
-  },[]);
-  setStateCategories(values);
 
 
   return (
@@ -45,13 +37,26 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
 
         <Styled.MenuSearch>
           <Styled.SearchContainer>
-              {stateCategories && stateCategories.length> 0 && stateCategories.map((category) => (
-                <div key={`article-meta-cat-${category._id}`}>
-                  <Link href={{pathname: "/category", query: { slug: category.slug}}} as={`/category/${category.slug}`}>
-                    <Styled.LinkMenuCategory> {category.displayName} </Styled.LinkMenuCategory>
+                <div>
+                  <Link href={{pathname: "/"}}>
+                    <Styled.LinkMenuCategory> Todas as Categorias </Styled.LinkMenuCategory>
                    </Link>
                 </div>
-              ))}
+                <div>
+                  <Link href={{pathname: "/category", query: { slug: 'desenvolvimento'}}} as={`/category/desenvolvimento`}>
+                    <Styled.LinkMenuCategory> Programação </Styled.LinkMenuCategory>
+                   </Link>
+                </div>
+                <div>
+                  <Link href={{pathname: "/category", query: { slug: 'momentos'}}} as={`/category/momentos`}>
+                    <Styled.LinkMenuCategory> Momentos </Styled.LinkMenuCategory>
+                   </Link>
+                </div>
+                <div>
+                  <Link href={{pathname: "/category", query: { slug: 'momentos'}}} as={`/category/entretenimento`}>
+                    <Styled.LinkMenuCategory> Entretenimento </Styled.LinkMenuCategory>
+                   </Link>
+                </div>
               <form action="/search/" method="GET">
                 <Styled.SearchInput type="search" placeholder="Buscar por posts..."
                   name="q"
