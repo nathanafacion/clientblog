@@ -11,7 +11,7 @@ export default function Index({ settings, variables}: StrapiPostAndSettings){
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {settings.blogName}
+          Vim Li Venci
         </title>
       </Head>
       <OtherPagesTemplate title={Mock.default.vimLiVenci.title} content={Mock.default.vimLiVenci.content} settings={settings} />

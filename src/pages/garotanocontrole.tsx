@@ -11,7 +11,7 @@ export default function Index({ settings, variables}: StrapiPostAndSettings){
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {settings.blogName}
+          Garota no Controle
         </title>
       </Head>
         <OtherPagesTemplate title={Mock.default.garotaNoControle.title} content={Mock.default.garotaNoControle.content} settings={settings} />

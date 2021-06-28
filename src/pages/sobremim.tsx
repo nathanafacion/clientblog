@@ -12,7 +12,7 @@ export default function Index({ settings, variables}: StrapiPostAndSettings){
      <>
       <Head>
         <title>
-          Pesquisa: {router.query.q} - {settings.blogName}
+          Sobre Mim
         </title>
       </Head>
       <OtherPagesTemplate title={Mock.default.about.title} content={Mock.default.about.content} settings={settings} />
