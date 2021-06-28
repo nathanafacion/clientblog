@@ -3,12 +3,13 @@ import {GetStaticPaths, GetStaticProps} from 'next';
 import {useRouter} from 'next/dist/client/router';
 import {defaultLoadPostsVariables, loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
 import {PostsTemplate} from '../../templates/PostsTemplate';
+import {AguardeTemplate} from '../../templates/AguardeTemplate';
 
 export default function TagPage({ posts, settings, variables}: StrapiPostAndSettings){
    const router = useRouter();
 
    if(router.isFallback){
-     return <h1>Loading..</h1>;
+      return <AguardeTemplate/>;
    }
 
    const tagName = posts[0].tags.filter(

@@ -3,6 +3,7 @@ import {GetStaticPaths, GetStaticProps} from 'next';
 import {useRouter} from 'next/dist/client/router';
 import {loadPosts, StrapiPostAndSettings} from '../../api/load-posts';
 import {PostTemplate} from '../../templates/PostTemplate';
+import {AguardeTemplate} from '../../templates/AguardeTemplate';
 
 export default function PostPage({ posts, settings}: StrapiPostAndSettings){
    const router = useRouter();
@@ -10,32 +11,23 @@ export default function PostPage({ posts, settings}: StrapiPostAndSettings){
    const post = posts[0];
 
    if(router.isFallback){
-     return (
+     return <AguardeTemplate/>
 
+   } else {
+
+
+     return (
        <>
         <Head>
           <title>
             {post.title} - {settings.blogName}
           </title>
+          <meta name="description" content={post.excerpt} />
         </Head>
-        <h1> Aguarde... </h1>
+        <PostTemplate post = {post} settings={settings} />
        </>
-
-     )
-   }
-
-
-   return (
-     <>
-      <Head>
-        <title>
-          {post.title} - {settings.blogName}
-        </title>
-        <meta name="description" content={post.excerpt} />
-      </Head>
-      <PostTemplate post = {post} settings={settings} />
-     </>
-   );
+     );
+ }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -54,8 +46,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths=[];
   }
 
-    console.log(data.posts[0].cover);
-
     return {
       paths,
       fallback: true,
@@ -73,8 +63,7 @@ export const getStaticProps: GetStaticProps = async(ctx) =>{
   } catch (e) {
     data = null;
   }
-  console.log('slug')
-  console.log(data);
+
   if(!data || !data.posts || !data.posts.length){
       return {
         notFound: true,

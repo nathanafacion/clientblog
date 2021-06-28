@@ -7,6 +7,7 @@ import {
   StrapiPostAndSettings,
 } from '../../api/load-posts';
 import { PostsTemplate } from '../../templates/PostsTemplate';
+import {AguardeTemplate} from '../../templates/AguardeTemplate';
 
 export default function AuthorPage({
   posts,
@@ -16,7 +17,7 @@ export default function AuthorPage({
   const router = useRouter();
 
   if (router.isFallback) {
-    return <h1>Loading...</h1>;
+     return <AguardeTemplate/>;
   }
 
   return (

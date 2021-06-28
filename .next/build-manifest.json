@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/kEDybek6kgoCWkHZGYUp7/_buildManifest.js",
-    "static/kEDybek6kgoCWkHZGYUp7/_ssgManifest.js"
+    "static/scB0gq0zbBP4j-Xc5Qd35/_buildManifest.js",
+    "static/scB0gq0zbBP4j-Xc5Qd35/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -37,7 +37,7 @@
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/749-b53afb9b6b0dd193d2d1.js",
       "static/chunks/66-66b69ad535191072ecb1.js",
-      "static/chunks/pages/author/[slug]-b567a567ebd02b621948.js"
+      "static/chunks/pages/author/[slug]-6c4695ac90f87249ae47.js"
     ],
     "/category/[slug]": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",
@@ -46,7 +46,7 @@
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/749-b53afb9b6b0dd193d2d1.js",
       "static/chunks/66-66b69ad535191072ecb1.js",
-      "static/chunks/pages/category/[slug]-7043e3941833f0b27f60.js"
+      "static/chunks/pages/category/[slug]-37820c6bf9205f4fe639.js"
     ],
     "/garotanocontrole": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",
@@ -61,7 +61,7 @@
       "static/chunks/framework-f59ab7ca42544b2599dd.js",
       "static/chunks/main-2d38521fc88f9be89edf.js",
       "static/chunks/15-27e9ff644aaaae709a4e.js",
-      "static/chunks/pages/post/[slug]-3c896dca87b267e949a0.js"
+      "static/chunks/pages/post/[slug]-a033f650e957a4e2381e.js"
     ],
     "/search": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",
@@ -87,7 +87,7 @@
       "static/chunks/15-27e9ff644aaaae709a4e.js",
       "static/chunks/749-b53afb9b6b0dd193d2d1.js",
       "static/chunks/66-66b69ad535191072ecb1.js",
-      "static/chunks/pages/tag/[slug]-a2d573f49e532c3ebda3.js"
+      "static/chunks/pages/tag/[slug]-60a38626825ec5cce41b.js"
     ],
     "/vimlivenci": [
       "static/chunks/webpack-6aa24242c38afc8913a0.js",

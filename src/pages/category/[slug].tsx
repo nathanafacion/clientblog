@@ -12,10 +12,10 @@ export default function CategoryPage({ posts, settings, variables}: StrapiPostAn
      return <AguardeTemplate/>
    }
 
-   //const categoryName = posts[0].categories.filter(
-  //   (category) => category.slug === router.query.slug,
-   //)[0].displayName;
-   const categoryName="teste";
+   const categoryName = posts[0].categories.filter(
+     (category) => category.slug === router.query.slug,
+   )[0].displayName;
+
    return (
      <>
       <Head>
