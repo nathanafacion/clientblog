@@ -8,7 +8,7 @@ import {AguardeTemplate} from '../../templates/AguardeTemplate';
 export default function PostPage({ posts, settings}: StrapiPostAndSettings){
    const router = useRouter();
 
-   if (posts.length > 0) {
+   if (posts && posts.length) {
        const post = posts[0];
 
        if(router.isFallback){
