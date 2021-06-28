@@ -45,7 +45,7 @@ export const BaseTemplate = ( { settings, children } : BaseTemplateProps) => {
 
         <Styled.MenuSearch>
           <Styled.SearchContainer>
-              {stateCategories.length> 0 && stateCategories.map((category) => (
+              {stateCategories && stateCategories.length> 0 && stateCategories.map((category) => (
                 <div key={`article-meta-cat-${category._id}`}>
                   <Link href={{pathname: "/category", query: { slug: category.slug}}} as={`/category/${category.slug}`}>
                     <Styled.LinkMenuCategory> {category.displayName} </Styled.LinkMenuCategory>
